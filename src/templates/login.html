@@ -36,16 +36,28 @@
         </div>
         </nav>
         <div class="container">
-            <h1>Speech to Text Converter</h1>
-            <form action="/recognize" method="post">
-                <button type="submit"><img src="{{ url_for('static', filename='mic.svg') }}"></img></button>
-            </form>
-            {% if text %}
-            <p>Recognized Text: {{ text }}</p>
-            {% endif %}
-            {% if error %}
-            <p>Error: {{ error }}</p>
-            {% endif %}
+            <h1>Word to Meaning</h1>
+            <div class="word">
+                <form id="dictionaryForm" action="/recognize" method="post">
+                    <input type="text" class="Word-Box" id="word" placeholder="Enter the Word" name="word">
+                </form>
+                <div id="speechBox">
+                    {% if text %}
+                        <p>Word: {{ text }}</p>
+                    {% endif %}
+                    {% if error %}
+                        <p>Error: {{ error }}</p>
+                    {% endif %}
+                </div>
+            </div>
+            <div id="word2">
+                <p id="meaning"></p>
+            </div>
+            <br>
+            <button id="translate" type="submit">Translate</button>
+            <!--<form action="/recognize" method="post">
+                <button id="buttonEdit" type="submit"><img src="{{ url_for('static', filename='mic.svg') }}"></img></button>
+            </form>-->
         <!-- FOOTER -->
         <footer class="w-100 py-4 flex-shrink-0">
             <div class="container py-4">

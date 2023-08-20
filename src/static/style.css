@@ -55,7 +55,7 @@ a:hover, a:focus {
 footer {
   background-color: #333;
   position: relative;
-  top: 200px;
+  top: 500px;
   width: 100%;
   bottom: 0;
 }
@@ -79,4 +79,46 @@ footer.w-100.py-4.flex-shrink-0 {
   margin: 0px;
   height: 200px;
   top: 200px;
+}
+
+#word2{
+  height: 200px;
+  width: 300px;
+  margin: 25px;
+  border: 2px #333;
+  background-color: white;
+  float: right;
+}
+
+.word{
+  height: 200px;
+  width: 300px;
+  margin: 25px;
+  border: 2px #333;
+  background-color: white;
+  float: left;
+}
+
+.Word-Box{
+  margin: 10px;
+  border-radius: 5px;
+}
+
+#speechBox{
+  margin: 75px;
+  height: 50px;
+  width: 200px;
+  border: 2px #333;
+  background-color: white;
+}
+
+#buttonEdit{
+  margin: 25px;
+  float: left;
+}
+
+#TranslateButton{
+  float: right;
+  color: white;
+  background-color: rgb(19, 151, 228);
 }

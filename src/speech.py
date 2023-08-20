@@ -20,4 +20,5 @@ def recognize():
             return render_template('login.html', error="Could not understand audio")
         except sr.RequestError as e:
             return render_template('login.html', error=f"Could not request results; {e}")
+    #word = request.form.get('word')
         

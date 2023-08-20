@@ -3,6 +3,15 @@ import openpyxl
 
 auth = Blueprint('auth', __name__)
 
+def StoreData(file_name, data):
+    try:
+        workbook = openpyxl.load_workbook(file_name)
+    except FileNotFoundError:
+        workbook = openpyxl.Workbook()
+    sheet = workbook.active
+    sheet.append(data)
+    workbook.save(file_name)
+
 @auth.route('/result', methods=['GET', 'POST'])
 def login():
     maths = int(request.form.get('math_marks'))
@@ -14,13 +23,7 @@ def login():
     sum = maths + science + eng_hin + computer + ssc
     head = sum/total 
     head = head * 100
-    workbook = openpyxl.Workbook()
-    sheet = workbook.active
-    data = [
-        ["Maths","Science","Eng Hin","Computer","SSc"],
-        [maths,science,eng_hin,computer,ssc]
-    ]
-    for row in data:
-        sheet.append(row)
-    workbook.save("data.xlsx")
+    excel_file_name = "data.xlsx"
+    marks = [maths, science, eng_hin, computer, ssc]
+    StoreData(excel_file_name, marks)
     return render_template('result.html', headtype=head)
