@@ -10,13 +10,12 @@ def index():
 
 @DictionaryAPI.route('/get_api', methods=['GET'])
 def DictionaryAPIcall():
-    data = request.json
-    html_value = data.get('htmlValue')
+    user_value = request.args.get('user_value')
     #headers = {'Accept': 'application/json'}
     #data = request.form.get('data')
     #word = data.get('word')
-    api_url = 'https://api.dictionaryapi.dev/api/v2/entries/en/'+html_value
+    api_url = 'https://api.dictionaryapi.dev/api/v2/entries/en/'+user_value
     r = requests.get(api_url)
     getData = r.json()
     #response_data = {'message': 'Data received successfully', 'received_data': getData}
-    return getData
+    return jsonify(getData)

@@ -3,19 +3,19 @@ $( document ).ready(function() {
         alert('Start');
         var field1Value = document.getElementById("word").value;
 
-        fetch('/get_api', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
+        $.ajax({
+            url: '/get_api',
+            type: 'GET',
+            contentType: 'application/json',
+            data: 'user_value='+field1Value,
+            success: function(response) {
+                alert('entered')
+                console.log('response',response);
+                $("#result").text(response);
             },
-            body: JSON.stringify({ htmlValue: field1Value })
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-        })
-        .catch(error => {
-            console.error('Error:', error);
+            error: function(error) {
+                console.log(error);
+            }
         });
     });
 });
