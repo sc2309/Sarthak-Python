@@ -10,45 +10,18 @@ $( document ).ready(function() {
             data: 'user_value='+field1Value,
             success: function(response) {
                 alert('entered')
-                //console.log('response',response);
+                //console.log('meaning',response);
                 //$("#result").text(response);
-                
-                const indexA = 0;
-                const indexB = 2;
-                const indexC = 2;
-                const indexD = 1;
-                const indexE = 0;
-                const indexF = 1;
 
-                for (let a = 0; a < response.length; a++) {
-                    if (a === indexA) {
-                        for (let b = 0; b < response[a].length; b++) {
-                            if (b === indexB) {
-                                for (let c = 0; c < response[a][b].length; c++) {
-                                    if (c === indexC) {
-                                        for (let d = 0; d < response[a][b][c].length; d++) {
-                                            if (d === indexD) {
-                                                for (let e = 0; e < respo2nse[a][b][c][d].length; e++) {
-                                                    if (e === indexE) {
-                                                        for (let f = 0; f < response[a][b][c][d][e].length; f++) {
-                                                            if (f === indexF) {
-                                                                const WordMeaning = response[a][b][c][d][e][f][g];
-                                                                console.log("response:", WordMeaning);
-                                                                break;
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
+                    if (response.length > 0 && response[0].meanings.length > 0 && response[0].meanings[0].definitions.length > 0) {
+                        var WordMeaning = response[0].meanings[0].definitions[0].definition;
+                        console.log('meaning', WordMeaning);
+                        $("#result").text(WordMeaning);
                     }
-                }
-
-                $("#result").text(WordMeaning);
+                    else {
+                        console.log('No definitions found in the response');
+                        $("#result").text('No definitions found');
+                    }
             },
             error: function(error) {
                 console.log(error);
