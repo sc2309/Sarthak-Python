@@ -1,6 +1,5 @@
 $( document ).ready(function() {
     $("#translate").click(function() {
-        alert('Start');
         var field1Value = document.getElementById("word").value;
 
         $.ajax({
@@ -9,7 +8,6 @@ $( document ).ready(function() {
             contentType: 'application/json',
             data: 'user_value='+field1Value,
             success: function(response) {
-                alert('entered')
                 //console.log('meaning',response);
                 //$("#result").text(response);
 
