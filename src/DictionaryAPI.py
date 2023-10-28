@@ -1,6 +1,10 @@
 import requests
 from flask import Blueprint,request,jsonify, render_template
 import speech_recognition as sr
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 DictionaryAPI = Blueprint('DictionaryAPI', __name__)
 
@@ -14,7 +18,8 @@ def DictionaryAPIcall():
     #headers = {'Accept': 'application/json'}
     #data = request.form.get('data')
     #word = data.get('word')
-    api_url = 'https://api.dictionaryapi.dev/api/v2/entries/en/'+user_value
+    DICTIONARY_API = os.environ.get('DICTIONARY_API')
+    api_url = DICTIONARY_API+user_value
     r = requests.get(api_url)
     getData = r.json()
     #response_data = {'message': 'Data received successfully', 'received_data': getData}
