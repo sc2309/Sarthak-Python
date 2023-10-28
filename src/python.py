@@ -4,5 +4,5 @@ python = Blueprint('python', __name__)
 
 @python.route('/python', methods=['GET', 'POST'])
 def learnPython():
-    head = 'hello world!'
-    return render_template('python.html', headtype=head)
+    intro = ''''''
+    return render_template('python.html', headtype=intro)

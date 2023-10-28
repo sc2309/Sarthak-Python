@@ -122,3 +122,23 @@ footer.w-100.py-4.flex-shrink-0 {
   color: white;
   background-color: rgb(19, 151, 228);
 }
+
+.CodeBox{
+  border-style: solid;
+  border-color: rgb(0, 0, 0);
+  width: 400px;
+  height: 200px;
+  margin: 10px;
+  padding: 10px;
+  background-color: #ddd;
+}
+
+.OutputBox{
+  border-style: solid;
+  border-color: rgb(0, 0, 0);
+  width: 300px;
+  height: 200px;
+  margin: 10px;
+  padding: 10px;
+  background-color: #ddd;
+}
