@@ -1,4 +1,20 @@
 from flask import Flask
+from cx_Freeze import setup, Executable
+
+executables = [Executable('app.py')]
+options = {
+    'build_exe': {
+        'includes': ['pyttsx3', 'flask', 'speech_recognition', 'openpyxl', 'requests', 'dotenv', 'os'], #additional files or data program needs
+    }
+}
+
+setup(
+    name="app",
+    version="1.0",
+    description="A WEB-APPLICATION",
+    executables=executables,
+    options=options
+)
 
 def myFirstApp():
     app = Flask(__name__)
